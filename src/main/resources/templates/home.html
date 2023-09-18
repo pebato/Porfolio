@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/projetos}">Lista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastro}">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+
+<main class="container mt-5">
+    <h2>Bem-vindo ao Porfolio Projetos</h2>
+    <p>Aqui, é possível verificar todos os projetos que estão em andamento pela nossa empresa e também cadastrar um novo projeto.</p>
+    <img src="https://media.istockphoto.com/id/1309878877/pt/foto/business-people-meeting-to-discuss-strategy-and-plan-for-business-and-investment.jpg?s=2048x2048&w=is&k=20&c=hiMuRg3Gpy-0TaSWGTIniI6xyOTHXM_BUytYZHxCIuU=" alt="Beautiful Home"  class="img-fluid" width="70%">
+</main>
+
+
+</body>
+</html>

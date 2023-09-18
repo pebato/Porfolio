@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Projetos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/projetos}">Lista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastro}">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container mt-5">
+        <div class="row">
+            <h1>Projetos</h1>
+        </div>
+        <table class ="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome do Projeto</th>
+                <th scope="col">Gerente Responsável</th>
+                <th scope="col">Data de Início</th>
+                <th scope="col">Data de Fim (Previsão) </th>
+                <th scope="col">Data de Fim </th>
+                <th scope="col">Descrição do Projeto</th>
+                <th scope="col">Status do Projeto</th>
+                <th scope="col">Orçamento</th>
+                <th scope="col">Risco</th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="projeto : ${projetos}">
+                <th th:text="${projeto.id}"></th>
+                <td th:text="${projeto.nome}"></td>
+                <td>
+                    <span th:if="${projeto.gerente}">
+                        <span th:text="${projeto.gerente.nome}"></span>
+                    </span>
+                    <span th:unless="${projeto.gerente}">&nbsp;</span>
+                </td>
+                <th th:text="${projeto.dataInicio}"></th>
+                <td th:text="${projeto.dataPrevisaoFim}"></td>
+                <td th:text="${projeto.dataFim}"></td>
+                <td th:text="${projeto.descricao}"></td>
+                <td th:text="${projeto.status}"></td>
+                <td th:text="${projeto.orcamento}"></td>
+                <td th:text="${projeto.risco}"></td>
+                <td >
+                    <button type="button" class="btn btn-dark">
+                        <span class="badge badge-light">Editar</span>
+                    </button>
+                </td>
+                <td>
+                    <form action="#" th:href="@{/delete/{id}(id=${projeto.id})}" th:method="delete" >
+                        <button type="submit" class="btn btn-danger">
+                            <span class="badge badge-light">Deletar</span>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</main>
+
+
+</body>
+</html>
