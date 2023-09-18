@@ -2,7 +2,6 @@ package com.pedrodib.porfolio.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 
 @Data
 @Getter
